@@ -26,12 +26,11 @@ class HiddenLayer:
 
         self.W_branches = W_branches
         self.b_1 = b_1
+
+        sub_branch_type = ""
+        z_i = T.concatenate(self.W_branches[sub_branch_type] + self.W_branches[sub_branch_dist])
         
-        lin_output = T.dot(input, self.W_branches) + self.b_1
-        self.output = (
-            lin_output if activation is None
-            else activation(lin_output)
-        )
+        # self.output = 
 
         self.params = [self.W_branches, self.b_1]
 
